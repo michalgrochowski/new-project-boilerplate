@@ -35,7 +35,13 @@
 }
 
 @mixin mq-min($width) {
-    @media (min-width: $width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin mq-minmax($width, $width2) {
+    @media screen and (min-width: $width) and (max-width: $width2) {
         @content;
     }
 }
@@ -49,3 +55,4 @@
 @mixin one-third {
     width: calc((100% / 3) - 2px);
 }
+
