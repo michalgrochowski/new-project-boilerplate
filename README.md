@@ -23,7 +23,7 @@ Included Scss mixins:
 - <code>flex-center-column</code> - display: flex, justify-content: center, align-items: center and flex-direction: column.
 - <code>mq-max</code> - media query mixin - input a max-width in parentheses to add a new media rule.
 - <code>mq-min</code> - media query mixin - input a min-width in parentheses to add a new media rule.
-- <code>mq-minmax</code> - media query mixin - input a mix-width in first parentheses and max-width in second to add a new media rule.
+- <code>mq-minmax</code> - media query mixin - input a min-width in first parentheses and max-width in second to add a new media rule.
 - <code>v-center</code> - used to center vertically with absolute positioning.
 - <code>one-third</code> - to make elements width almost 33%.
 
