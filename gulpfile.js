@@ -14,6 +14,10 @@ var csso = require('gulp-csso');
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({
             stream: true
@@ -24,7 +28,6 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
-    // others
 });
 
 gulp.task('browserSync', function() {
@@ -48,22 +51,18 @@ gulp.task('img', function(){
         .pipe(gulp.dest('dist/img'))
 });
 
-gulp.task('fonts', function(){
-    return gulp.src('app/fonts/**/*')
-        .pipe(gulp.dest('dist/fonts'))
+gulp.task('font', function(){
+    return gulp.src('app/font/**/*')
+        .pipe(gulp.dest('dist/font'))
+});
+
+gulp.task('php', function(){
+    return gulp.src('app/phpmailer/**/*')
+        .pipe(gulp.dest('dist/phpmailer'))
 });
 
 gulp.task('clean:dist', function(){
     return del.sync('dist');
-});
-
-gulp.task('autoprefixer', function() {
-    return gulp.src('src/app.css')
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('dist'))
 });
 
 gulp.task('csso', function () {
@@ -77,5 +76,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'csso','img', 'fonts', 'autoprefixer'])
+    sequence('clean:dist', ['sass', 'useref', 'csso','img', 'font', 'php',])
 });
