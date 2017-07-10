@@ -9,13 +9,13 @@ var del = require('del');
 var cache = require('gulp-cache');
 var sequence = require('run-sequence');
 var autoprefixer = require('gulp-autoprefixer');
-var csso = require('gulp-csso');
+var cleancss = require('gulp-clean-css');
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['> 1%', 'IE 10-11', 'Chrome 30'],
             cascade: false
         }))
         .pipe(gulp.dest('app/css'))
@@ -42,6 +42,7 @@ gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
         .pipe(gulpIf('app/js/**/*.js', uglify()))
+        .pipe(gulpIf('app/css/**/*.css', cleancss()))
         .pipe(gulp.dest('dist'))
 });
 
@@ -56,6 +57,11 @@ gulp.task('font', function(){
         .pipe(gulp.dest('dist/font'))
 });
 
+gulp.task('fonts', function(){
+    return gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'))
+});
+
 gulp.task('php', function(){
     return gulp.src('app/phpmailer/**/*')
         .pipe(gulp.dest('dist/phpmailer'))
@@ -65,16 +71,10 @@ gulp.task('clean:dist', function(){
     return del.sync('dist');
 });
 
-gulp.task('csso', function () {
-    return gulp.src('app/**/*.css')
-        .pipe(csso())
-        .pipe(gulp.dest('dist'));
-});
-
 gulp.task('default', function(){
     sequence(['sass', 'browserSync', 'watch'])
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'csso','img', 'font', 'php',])
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php',])
 });
