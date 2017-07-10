@@ -10,7 +10,7 @@ When you set up all of the above, clone or download this repository and in your 
 
 After that you will be able to use 2 main tasks:
 - typing <code>gulp</code> will start "dev" task, which includes Scss to Css converter, watcher for changes in your files and browserSync, which reloads your page everytime you make a change.
-- typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - uglified and concatenated JS, uglified and auto-prefixed CSS, compressed images and of course your index.html.
+- typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - uglified and concatenated JS, minified, concatenated and auto-prefixed CSS, compressed images and of course your index.html.
 
 Also included are normalize.css and latest jQuery.
 
