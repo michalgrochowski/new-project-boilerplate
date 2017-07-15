@@ -14,7 +14,7 @@ After that you will be able to use 2 main tasks:
 
 Also included are normalize.css and latest jQuery.
 
-With this boilerplate I recommend using Scss with Flexbox and BEM, but you are free to change whatever you want. There are already few Scss rules by default so you can build on that, but feel free to delete everything and start from scratch hovewer you want.
+With this boilerplate I recommend using Scss with Flexbox and BEM, but you are free to change whatever you want. There are already few Scss rules by default so you can build on that, but feel free to delete everything and start from scratch however you want.
 
 Included Scss mixins:
 - <code>flex-row</code> - display: flex and flex-direction: row.
