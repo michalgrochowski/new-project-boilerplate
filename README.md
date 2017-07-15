@@ -2,7 +2,7 @@
 
 This is my boilerplate for new projects. If you want to use it, you'll need:
 - Node.js - https://nodejs.org/en/,
-- Gulp - after installing Node.js, run command line and type <code>npm install gulp -g</code> (so you can use it globally),
+- Gulp - after installing Node.js, run command line and type <code>npm install gulp --g</code> (so you can use it globally),
 - Any text editor or IDE,
 - Any browser.
 
