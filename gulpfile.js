@@ -72,6 +72,51 @@ gulp.task('fonts', function(){
         .pipe(gulp.dest('dist/fonts'))
 });
 
+gulp.task('php', function(){
+    return gulp.src('app/phpmailer/**/*')
+        .pipe(gulp.dest('dist/phpmailer'))
+});
+
+gulp.task('form', function(){
+    return gulp.src('app/formularz.php')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('json', function(){
+    return gulp.src('app/json/**/*.json')
+        .pipe(gulp.dest('dist/json'))
+});
+
+gulp.task('favicons', function(){
+    return gulp.src('app/*.png')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('ico', function(){
+    return gulp.src('app/*.ico')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('xml', function(){
+    return gulp.src('app/*.xml')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('favicon-svg', function(){
+    return gulp.src('app/*.svg')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('manifest', function(){
+    return gulp.src('app/manifest.json')
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('serviceWorker', function(){
+    return gulp.src('app/serviceworker.js')
+        .pipe(gulp.dest('dist'))
+});
+
 gulp.task('clean:dist', function(){
     return del.sync('dist');
 });
@@ -81,5 +126,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts'], 'uglify', 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'uglify', 'cssmin')
 });

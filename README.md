@@ -12,9 +12,11 @@ After that you will be able to use 2 main tasks:
 - typing <code>gulp</code> will start "dev" task, which includes Scss to Css converter, watcher for changes in your files and browserSync, which reloads your page everytime you make a change.
 - typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - uglified and concatenated JS, minified, concatenated and auto-prefixed CSS, compressed images and of course your index.html.
 
-Also included are normalize.css and latest jQuery.
+Also included are normalize.css, latest jQuery and basic serviceworker.js with registeration in main.js so you can easily make a PWA, though you have to edit cache name in it.
 
-With this boilerplate I recommend using Scss with Flexbox and BEM, but you are free to change whatever you want. There are already few Scss rules by default so you can build on that, but feel free to delete everything and start from scratch however you want.
+With this boilerplate I recommend using SCSS with Flexbox and BEM, but you are free to change whatever you want. There are already few SCSS rules and mixins by default, so you can build on that, but feel free to delete everything and start from scratch however you want.
+
+You can find some more info in the index.html comments.
 
 Included Scss mixins:
 - <code>flex-row</code> - display: flex and flex-direction: row.
