@@ -10,7 +10,7 @@ When you set up all of the above, clone or download this repository and in your 
 
 After that you will be able to use 2 main tasks:
 - typing <code>gulp</code> will start "dev" task, which includes Scss to Css converter, watcher for changes in your files and browserSync, which reloads your page everytime you make a change.
-- typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - uglified and concatenated JS, minified, concatenated and auto-prefixed CSS, compressed images and of course your index.html.
+- typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - concatenated, uglified, and transpiled to ES5 JS, minified, concatenated and auto-prefixed CSS, compressed images and of course your index.html. Also it will move all the favicons, manifest.json and serviceworker.js.
 
 Also included are normalize.css, latest jQuery and basic serviceworker.js with registeration in main.js so you can easily make a PWA, though you have to edit cache name in it.
 
