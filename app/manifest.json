@@ -1,6 +1,6 @@
 {
     "name": "App name",
-    "start_url": "./index.html",
+    "start_url": "./",
     "short_name": "App name",
     "icons": [
         {
