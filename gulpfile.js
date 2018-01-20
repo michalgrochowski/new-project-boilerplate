@@ -49,7 +49,7 @@ gulp.task('useref', () =>
 gulp.task('babel', () =>
     gulp.src('dist/js/main.min.js')
         .pipe(babel({
-            presets: ['env']
+            presets: ['es2015']
         }))
         .pipe(gulp.dest('dist/js'))
 );
@@ -140,5 +140,5 @@ gulp.task('default', () =>
 );
 
 gulp.task('build', () =>
-    sequence('clean:dist', ['sass', 'useref', 'babel', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'minify', 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'babel', 'minify', 'cssmin')
 );
