@@ -10,11 +10,11 @@ When you set up all of the above, clone or download this repository and in your 
 
 After that you will be able to use 2 main tasks:
 - typing <code>gulp</code> will start "dev" task, which includes SCSS to CSS converter, watcher for changes in your files and browserSync, which reloads your page everytime you make a change.
-- typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - concatenated, uglified, and transpiled to ES5 JS, minified, concatenated and auto-prefixed CSS, compressed images and of course your index.html with timestamps added to your CSS and JS files. Also it will move all the favicons, manifest.json and serviceworker.js with updated cache name with updated timestamp.
+- typing <code>gulp build</code> will start "building" task, which will create a "dist" directory with all the files ready to deploy to your server - concatenated, uglified, and transpiled to ES5 JS, minified, concatenated and auto-prefixed CSS, compressed images and of course your index.html with timestamps added to your CSS and JS files. Also it will move all the favicons, manifest.json and serviceworker.js with updated cache name.
 
 Also included are normalize.css, latest jQuery and basic serviceworker.js with registeration in main.js so you can easily make a PWA.
 
-#### Important note - since v2.3 you have to manually replace "cachename-" in the <code>gulpfile.js</code> (in the serviceWorkerCache task at the bottom) and <code>serviceworker.js</code> (CACHE_NAME variable at the top) to your desired cache name - they obviously have to match to make it work.
+#### Important note - since v2.3 you have to manually replace "cachename-" in the <code>gulpfile.js</code> (in the 'serviceWorkerCache' task at the bottom) and <code>serviceworker.js</code> ('CACHE_NAME' variable at the top) to your desired cache name - they obviously have to match to make it work.
 
 With this boilerplate I recommend using SCSS with Flexbox and BEM, but you are free to change whatever you want. There are already few SCSS rules and mixins by default, so you can build on that, but feel free to delete everything and start from scratch however you want. There is also a working nav/menu component with basic scripts for mobile version.
 
@@ -31,6 +31,6 @@ You can find some more info in the index.html comments.
 - <code>v-center</code> - used to center vertically with absolute positioning.
 - <code>one-third</code> - to make elements width almost 33%.
 
-Enjoy!
+### Enjoy!
 
 License: MIT
