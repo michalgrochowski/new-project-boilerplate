@@ -12,6 +12,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
 const babel = require('gulp-babel');
 const babelCore = require('gulp-core');
+const cachebust = require('gulp-cache-bust');
+const replace = require('gulp-replace');
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
@@ -45,6 +47,14 @@ gulp.task('useref', () =>
         .pipe(useref())
         .pipe(gulp.dest('dist'))
 );
+
+gulp.task('cachebust', function(){
+    return gulp.src('dist/*.html')
+        .pipe(cachebust({
+            type: 'timestamp'
+        }))
+        .pipe(gulp.dest('dist'))
+});
 
 gulp.task('babel', () =>
     gulp.src('dist/js/main.min.js')
@@ -135,10 +145,19 @@ gulp.task('clean:dist', () =>
     del.sync('dist')
 );
 
+gulp.task('serviceWorkerCache', () => {
+    gulp.src(['dist/serviceworker.js'])
+      .pipe(replace(/(cachename-\d{0,13})/g, (match, p1, offset, string) => {
+        let currentDate = Date.now();
+        return 'cachename-' + currentDate;
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('default', () =>
     sequence(['sass', 'browserSync', 'watch'])
 );
 
 gulp.task('build', () =>
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'babel', 'minify', 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'babel', 'minify', 'cssmin', 'cachebust', 'serviceWorkerCache')
 );

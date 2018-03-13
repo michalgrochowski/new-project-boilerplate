@@ -1,4 +1,4 @@
-const CACHE_NAME = "app-name";
+const CACHE_NAME = "cachename-";
 const URLS_TO_CACHE  = [
     "/index.html",
     "/manifest.json",
@@ -45,7 +45,7 @@ self.addEventListener("activate", event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames
-          .filter(name => name.includes("app-name") && name !== CACHE_NAME)
+          .filter(name => name.includes("cachename") && name !== CACHE_NAME)
           .map(name => caches.delete(name))
       )
     }).then(() => self.clients.claim())
