@@ -14,7 +14,7 @@ After that you will be able to use 2 main tasks:
 
 Also included are normalize.css, latest jQuery and basic serviceworker.js with registeration in main.js so you can easily make a PWA.
 
-#### Important note - since v2.3 you have to manually replace "cachename-" in the <code>gulpfile.js</code> (in the 'serviceWorkerCache' task at the bottom) and <code>serviceworker.js</code> ('CACHE_NAME' variable at the top) to your desired cache name - they obviously have to match to make it work.
+#### Important note - since v2.3 you have to manually replace "cachename-" in the <code>gulpfile.js</code> (in the 'serviceWorkerCache' task at the bottom) and <code>serviceworker.js</code> ('CACHE_STATIC_NAME' and 'CACHE_DYNAMIC_NAME'variables at the top) to your desired cache name - they obviously have to match to make it work.
 
 With this boilerplate I recommend using SCSS with Flexbox and BEM, but you are free to change whatever you want. There are already few SCSS rules and mixins by default, so you can build on that, but feel free to delete everything and start from scratch however you want. There is also a working nav/menu component with basic scripts for mobile version.
 
